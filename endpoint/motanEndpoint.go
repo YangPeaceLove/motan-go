@@ -19,7 +19,7 @@ var (
 	defaultRequestTimeout      = 1000 * time.Millisecond
 	defaultConnectTimeout      = 1000 * time.Millisecond
 	defaultKeepaliveInterval   = 10 * time.Second
-	defaultErrorCountThreshold = 10
+	defaultErrorCountThreshold = 200//10->200 wdk 20181018 modify
 	ErrChannelShutdown         = fmt.Errorf("The channel has been shutdown")
 	ErrSendRequestTimeout      = fmt.Errorf("Timeout err: send request timeout")
 	ErrRecvRequestTimeout      = fmt.Errorf("Timeout err: receive request timeout")
