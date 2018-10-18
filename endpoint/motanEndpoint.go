@@ -142,7 +142,7 @@ func (m *MotanEndpoint) Call(request motan.Request) motan.Response {
 	}
 	recvMsg, err := channel.Call(msg, deadline, rc)
 	if err != nil {
-		vlog.Errorf("motanEndpoint call fail. ep:%s, req:%s, msgid:%d, error: %s\n", m.url.GetAddressStr(), motan.GetReqInfo(request), msg.Header.RequestID, err.Error())
+		vlog.Errorf("defaultErrorCountThreshold=%v | motanEndpoint call fail. ep:%s, req:%s, msgid:%d, error: %s\n",defaultErrorCountThreshold , m.url.GetAddressStr(), motan.GetReqInfo(request), msg.Header.RequestID, err.Error())
 		m.recordErrAndKeepalive()
 		return m.defaultErrMotanResponse(request, "channel call error:"+err.Error())
 	}
